@@ -1,6 +1,6 @@
 #include<iostream>
 #include<time.h>
-#include<sm4.h>
+#include"sm4.h"
 
 int main() {
   int ret=0;
