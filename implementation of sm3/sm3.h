@@ -185,8 +185,8 @@ string extension(string str) {
 	for (int i = 16; i < 68; i++) {//根据公式生成第17位到第68位的W值
 		res += XOR(XOR(P1(XOR(XOR(res.substr((i - 16) * 8, 8), res.substr((i - 9) * 8, 8)), LeftShift(res.substr((i - 3) * 8, 8), 15))), LeftShift(res.substr((i - 13) * 8, 8), 7)), res.substr((i - 6) * 8, 8));
 	}
-	cout << "扩展后的消息：" << endl;
-	cout << "W0,W1,……,W67的消息：" << endl;
+	cout << "after extension:" << endl;
+	cout << "W0,W1,……,W67：" << endl;
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			cout << res.substr(i * 64 + j * 8, 8) << "  ";
@@ -198,7 +198,7 @@ string extension(string str) {
 	for (int i = 0; i < 64; i++) {//根据公式生成64位W'值
 		res += XOR(res.substr(i * 8, 8), res.substr((i + 4) * 8, 8));
 	}
-	cout << "W0',W1',……,W63'的消息：" << endl;
+	cout << "W0',W1',……,W63'：" << endl;
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			cout << res.substr(544 + i * 64 + j * 8, 8) << "  ";
@@ -213,7 +213,7 @@ string compress(string str1, string str2) {
 	string IV = str2;
 	string A = IV.substr(0, 8), B = IV.substr(8, 8), C = IV.substr(16, 8), D = IV.substr(24, 8), E = IV.substr(32, 8), F = IV.substr(40, 8), G = IV.substr(48, 8), H = IV.substr(56, 8);
 	string SS1 = "", SS2 = "", TT1 = "", TT2 = "";
-	cout << "迭代压缩中间值: " << endl;
+	cout << "Iteratively compress intermediate values: " << endl;
 	cout << "    A         B         C         D         E         F        G         H " << endl;
 	cout << A << "  " << B << "  " << C << "  " << D << "  " << E << "  " << F << "  " << G << "  " << H << endl;
 	for (int j = 0; j < 64; j++) {
@@ -238,12 +238,12 @@ string compress(string str1, string str2) {
 
 string iteration(string str) {
 	int num = str.size() / 128;
-	cout << "消息经过填充之后共有 " + to_string(num) + " 个消息分组" << endl;
+	cout << "group num:" + to_string(num)<< endl;
 	cout << endl;
 	string V = "7380166F4914B2B9172442D7DA8A0600A96F30BC163138AAE38DEE4DB0FB0E4E";
 	string B = "", extensionB = "", compressB = "";
 	for (int i = 0; i < num; i++) {
-		cout << "第 " << to_string(i + 1) << " 个消息分组：" << endl;
+		cout << "the " << to_string(i + 1) << " group:" << endl;
 		cout << endl;
 		B = str.substr(i * 128, 128);
 		extensionB = extension(B);
