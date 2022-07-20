@@ -19,13 +19,13 @@ int main() {
 	string result = iteration(paddingValue);
 	cout << "hash value:" << endl;
 	cout << result.substr(0, 8) << "  ";
-	cout << result.substr(1, 8) << "  ";
-	cout << result.substr(2, 8) << "  ";
-	cout << result.substr(3, 8) << "  ";
-	cout << result.substr(4, 8) << "  ";
-	cout << result.substr(5, 8) << "  ";
-	cout << result.substr(6, 8) << "  ";
-	cout << result.substr(7, 8) << "  ";
+	cout << result.substr(8, 8) << "  ";
+	cout << result.substr(16, 8) << "  ";
+	cout << result.substr(24, 8) << "  ";
+	cout << result.substr(32, 8) << "  ";
+	cout << result.substr(40, 8) << "  ";
+	cout << result.substr(48, 8) << "  ";
+	cout << result.substr(56, 8) << "  ";
 	/*for (int i = 0; i < 8; i++) {
 		cout << result.substr(i * 8, 8) << "  ";
 	}*/
