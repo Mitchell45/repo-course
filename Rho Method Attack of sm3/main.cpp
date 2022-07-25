@@ -18,7 +18,7 @@ void rho_attack() {
 			rho = 2 * rho + 1;	//rho递推表达式	
 		}
 		else {
-			//超过Int界限，换一个初始值重新开始
+			//超过int界限，换一个初始值重新开始
 			rho = ++start;
 		}
 		cout << "目前进度：" << i << endl;
@@ -56,7 +56,7 @@ void rho_attack() {
 			}
 		}
 	}
-	cout << "birthday attack failed!";
+	cout << "rho attack failed!";
 }
 
 int main() {
