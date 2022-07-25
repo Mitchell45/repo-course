@@ -1,4 +1,4 @@
-#include"optomize_sm4.h"
+#include"sm4_optimize.h"
 #include<iostream>
 #include<thread>
 #include<intrin.h>
