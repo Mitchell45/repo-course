@@ -1,55 +1,56 @@
 #include"transform.h"
-#include"sm3.h"
+#include"sm3_optimize.h"
 
+//尝试数
+#define max_num 65536//2^16
+//查表
+string inlist[max_num];
+string outlist[max_num];
+
+void birthday_attack() {
+	string str;
+	string result;
+	string paddingValue;
+	for (int i = 0; i < max_num; outlist[i++] = result) {
+		cout << "目前进度：" << i << endl;
+		str = to_string(i);
+		inlist[i] = str;
+		paddingValue = padding(str);
+		result = iteration(paddingValue);
+		//查表寻找弱碰撞
+		for (int j = 0; j < i; j++) {
+			if (outlist[j].substr(0, 4) == result.substr(0, 4)) {
+				cout << endl;
+				cout << "collision string input 1 :" + str << endl << endl;
+				cout << "collision hash value 1:" << endl;
+				cout << result.substr(0, 8) << "  ";
+				cout << result.substr(8, 8) << "  ";
+				cout << result.substr(16, 8) << "  ";
+				cout << result.substr(24, 8) << "  ";
+				cout << result.substr(32, 8) << "  ";
+				cout << result.substr(40, 8) << "  ";
+				cout << result.substr(48, 8) << "  ";
+				cout << result.substr(56, 8) << "  ";
+				cout << endl;
+				cout << "collision string input 2 :" + inlist[j] << endl << endl;
+				cout << "collision hash value 2:" << endl;
+				cout << outlist[j].substr(0, 8) << "  ";
+				cout << outlist[j].substr(8, 8) << "  ";
+				cout << outlist[j].substr(16, 8) << "  ";
+				cout << outlist[j].substr(24, 8) << "  ";
+				cout << outlist[j].substr(32, 8) << "  ";
+				cout << outlist[j].substr(40, 8) << "  ";
+				cout << outlist[j].substr(48, 8) << "  ";
+				cout << outlist[j].substr(56, 8) << "  ";
+				cout << endl << "finding num in all:  " << i;
+				return;
+			}
+		}
+	}
+	cout << "birthday attack failed!";
+}
 
 int main() {
-	//寻求碰撞的原字符串=我的学号
-	string str1;
-	str1 = "202000460079";
-	cout << "string input :" + str1 << endl << endl;
-	string paddingValue1 = padding(str1);
-	cout << "after padding:" << endl;
-	for (int i = 0; i < paddingValue1.size() / 64; i++) {
-		for (int j = 0; j < 8; j++) {
-			cout << paddingValue1.substr(i * 64 + j * 8, 8) << "  ";
-		}
-		cout << endl;
-	}
-	cout << endl;
-	string result1 = iteration(paddingValue1);
-	cout << "hash value:" << endl;
-	cout << result1.substr(0, 8) << "  ";
-	cout << result1.substr(8, 8) << "  ";
-	cout << result1.substr(16, 8) << "  ";
-	cout << result1.substr(24, 8) << "  ";
-	cout << result1.substr(32, 8) << "  ";
-	cout << result1.substr(40, 8) << "  ";
-	cout << result1.substr(48, 8) << "  ";
-	cout << result1.substr(56, 8) << "  ";
-	string str2 = "202000460079";
-	string result2;
-	string paddingValue2;
-	double try_num = pow(2,32);
-	//开始生日攻击
-	for (double i = 0; i < try_num; i++) {
-		str2 = to_string(rand());
-		paddingValue2 = padding(str2);
-		result2 = iteration(paddingValue2);
-		if (result1.substr(0, 8) == result2.substr(0, 8) && result1.substr(8, 8) == result2.substr(8, 8)) {
-			cout << endl << endl;
-			cout << "collision string input :" + str2 << endl << endl;
-			cout << "collision hash value:" << endl;
-			cout << result2.substr(0, 8) << "  ";
-			cout << result2.substr(8, 8) << "  ";
-			cout << result2.substr(16, 8) << "  ";
-			cout << result2.substr(24, 8) << "  ";
-			cout << result2.substr(32, 8) << "  ";
-			cout << result2.substr(40, 8) << "  ";
-			cout << result2.substr(48, 8) << "  ";
-			cout << result2.substr(56, 8) << "  ";
-			cout << endl << "finding num in all:  " << i;
-			return 0;
-		}
-	}
+	birthday_attack();
 	return 0;
 }
