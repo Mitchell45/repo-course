@@ -12,7 +12,7 @@
 
 ### 运行结果
 
-![sm4_openssl运行结果.png](https://github.com/Mitchell45/repo-course/blob/main/images of outcome/sm4_openssl运行结果.png)
+![sm4_openssl运行结果.png](https://github.com/Mitchell45/repo-course/blob/main/images%20of%20outcome/sm4_openssl%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
 
 ### 贡献说明
 
