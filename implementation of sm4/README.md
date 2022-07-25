@@ -12,7 +12,7 @@
 
 ### 运行结果
 
-![image-20220725125457561](C:\Users\86150\AppData\Roaming\Typora\typora-user-images\image-20220725125457561.png)
+![image-20220725125457561]([C:\Users\86150\AppData\Roaming\Typora\typora-user-images\image-20220725125457561.png](https://github.com/Mitchell45/repo-course/blob/main/images%20of%20outcome/sm4%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png))
 
 ### 贡献说明
 
