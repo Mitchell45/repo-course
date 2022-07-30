@@ -3,7 +3,7 @@
 #include "openssl/evp.h"
 using namespace std;
 
-int sm3_hash(char* plain, size_t len, unsigned char* hash, unsigned int* hash_len)
+int sha256(char* plain, size_t len, unsigned char* hash, unsigned int* hash_len)
 {
 	EVP_MD_CTX* md_ctx;
 	const EVP_MD* md;
