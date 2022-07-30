@@ -1,4 +1,4 @@
-#include "openssl_sm3.h"
+#include "openssl_sha256.h"
 
 #include <iostream>
 #include "openssl/evp.h"
